@@ -11,8 +11,11 @@ const HomePage = props => {
 			<div className="Hero">
 				<div className="HeroColumn">
 					<Link className="HeroButton" to="/map">CURIOUS?<br></br>CHECK STATS</Link>
-					<HashLink className="HeroButton" to="#ActionButton">SCROLL TO<br></br>FILE REPORT</HashLink>
+					<p>
+					<HashLink className="HeroButton" to="#ActionButton">SCROLL TO<br></br>FILE REPORT</HashLink> </p>
+										
 				</div>
+								
 			</div>
 
 			<div className="content">

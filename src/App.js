@@ -8,7 +8,7 @@ import ReportPledgePage from './views/ReportPledgePage';
 import ReportFormPage from './views/ReportFormPage';
 import ThankYouPage from './views/ThankYouPage/';
 import MapPage from './views/MapPage';
-
+import HoldingPage from './views/HoldingPage';
 
 const App = () => (
     <Root>
@@ -18,6 +18,7 @@ const App = () => (
             <Route exact path="/report" component={ReportFormPage} />
             <Route exact path="/thanks" component={ThankYouPage} />
             <Route exact path="/map" component={MapPage} />
+			<Route exact path="/holding" component={HoldingPage} />
         </Fragment>
     </Root>
 );
