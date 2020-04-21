@@ -5,7 +5,7 @@ import Dashboard from './Dashboard'
 
 export default function index() {
   
-  const [reportSelection, setReportSelection] = useState(1);
+  const [reportSelection, setReportSelection] = useState(0);
   const selectRef = useRef(null);
 
   let handleSubmit = () =>{
