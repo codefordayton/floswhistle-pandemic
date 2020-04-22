@@ -2,13 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import DistrictsMap from './districts_map.svg'
 import {SvgLoader, SvgProxy} from 'react-svgmt'
+import ReactToolTip from 'react-tooltip'
 
 export default function DistrictsMaps() {
   
   const districtData = [{district: 'AL-01', rate: 5  },{district: 'AL-02', rate: 10}, {district: 'AL-03', rate: 20},
   {district: 'AL-04', rate: 30}, {district: 'AL-05', rate: 40}, {district: 'AL-06', rate: 50},{district: 'AL-07', rate: 60},{district: 'AZ-01', rate: 70 },{district: 'AZ-02', rate: 80 },{district: 'AZ-03', rate: 90 },{district: 'AZ-04', rate: 100},{district: 'AZ-05', rate: 10 },{district: 'AZ-06', rate: 20},{district: 'AZ-07', rate: 30},{district: 'AZ-08', rate: 40},{district: 'AZ-09', rate: 50}];
 
-  console.log(districtData[1].district);
+  const getDistrictInfo = (districtId) =>{
+    
+
+    const targetDistrictInfo = districtData.filter(match => match.district === districtId);
+
+    return(
+      `District Name = ${targetDistrictInfo[0].district}. Rate= ${targetDistrictInfo[0].rate}`
+      );
+
+  }
 
   const genColor = (percentage) =>{
     
@@ -41,11 +51,15 @@ export default function DistrictsMaps() {
   const MapWrapper = styled.div`
     overflow: scroll;
   `
+
   return (
     <MapWrapper>
       <SvgLoader path={DistrictsMap}>
         {districtData.map((info) =>(
-            <SvgProxy key={`#${info.district}`} selector={`#${info.district}`} fill={genColor(info.rate)} />
+            <React.Fragment>
+              <ReactToolTip />
+              <SvgProxy key={`#${info.district}`} selector={`#${info.district}`} fill={genColor(info.rate)} data-tip={getDistrictInfo(info.district)} />
+            </React.Fragment>
         ))}
       </SvgLoader>
     </MapWrapper>
