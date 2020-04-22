@@ -15,7 +15,25 @@ export default function DistrictsMaps() {
     const targetDistrictInfo = districtData.filter(match => match.district === districtId);
 
     return(
-      `District Name = ${targetDistrictInfo[0].district}. Rate= ${targetDistrictInfo[0].rate}`
+      `<html>
+        <style>
+          .tooltipInfoWrapper{
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-radius: 5px 5px 5px 5px;
+          }
+          h2{
+            text-align: center;
+          }
+
+        </style>
+        <div class='tooltipInfoWrapper'>
+        <h2><u>District Info</u></h2>
+        <p><b>District Name: </b>${targetDistrictInfo[0].district}</p> 
+        <p><b>Rate: </b>${targetDistrictInfo[0].rate}</p>
+        </div>
+      </html>`
       );
 
   }
@@ -56,8 +74,8 @@ export default function DistrictsMaps() {
     <MapWrapper>
       <SvgLoader path={DistrictsMap}>
         {districtData.map((info) =>(
-            <React.Fragment>
-              <ReactToolTip />
+            <React.Fragment >
+              <ReactToolTip html='true'/>
               <SvgProxy key={`#${info.district}`} selector={`#${info.district}`} fill={genColor(info.rate)} data-tip={getDistrictInfo(info.district)} />
             </React.Fragment>
         ))}
