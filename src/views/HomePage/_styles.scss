@@ -25,11 +25,34 @@
             margin: 0.5em;
             text-align: center;
             font-weight: bold;
+            text-transform: none;
         }
         }
     }
 
     .content {
         margin: 1.0em;
+    }
+
+    .social {
+        background-color: $color-blue-dark;
+        color: $color-white;
+        flex: 1;
+        padding: 1.0em;
+        padding-bottom: 2.0em;
+
+        .socials {
+            margin-bottom: 1.0em;
+            padding: 1.0em;
+            text-align: center;
+
+            a {
+                color: $color-white;
+                font-size: 48px;
+                margin: 12px;
+                padding: 12px;
+                text-align: center;
+            }
+        }
     }
 }
