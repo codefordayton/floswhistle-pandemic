@@ -4,17 +4,20 @@ import DistrictsMap from './districts_map.svg'
 import {SvgLoader, SvgProxy} from 'react-svgmt'
 import ReactToolTip from 'react-tooltip'
 
+const MapWrapper = styled.div`
+overflow: scroll;
+`
+
 export default function DistrictsMaps() {
   
   const districtData = [{district: 'AL-01', rate: 5  },{district: 'AL-02', rate: 10}, {district: 'AL-03', rate: 20},
-  {district: 'AL-04', rate: 30}, {district: 'AL-05', rate: 40}, {district: 'AL-06', rate: 50},{district: 'AL-07', rate: 60},{district: 'AZ-01', rate: 70 },{district: 'AZ-02', rate: 80 },{district: 'AZ-03', rate: 90 },{district: 'AZ-04', rate: 100},{district: 'AZ-05', rate: 10 },{district: 'AZ-06', rate: 20},{district: 'AZ-07', rate: 30},{district: 'AZ-08', rate: 40},{district: 'AZ-09', rate: 50}];
+  {district: 'AL-04', rate: 30}, {district: 'AL-05', rate: 40}, {district: 'AL-06', rate: 50},{district: 'AL-07', rate: 60},{district: 'AZ-01', rate: 70 },{district: 'AZ-02', rate: 80 },{district: 'AZ-03', rate: 90 },{district: 'AZ-04', rate: 100},{district: 'AZ-05', rate: 10 },{district: 'AZ-06', rate: 20},{district: 'AZ-07', rate: 30},{district: 'AZ-08', rate: 40},{district: 'AZ-09', rate: 50}]; //dummy object that attempts to mock data returned from the API
 
-  const getDistrictInfo = (districtId) =>{
+  const getDistrictInfo = (districtId) =>{ //Filters the API data by congressional district ID the populates pop-up window with information
     
-
     const targetDistrictInfo = districtData.filter(match => match.district === districtId);
 
-    return(
+    return( //HTML for pop-up
       `<html>
         <style>
           .tooltipInfoWrapper{
@@ -38,7 +41,7 @@ export default function DistrictsMaps() {
 
   }
 
-  const genColor = (percentage) =>{
+  const genColor = (percentage) =>{ //Calculates the color of each district based on the percentage of respondents; could be less verbose by using an array method; consider refactoring
     
     if(percentage <= 0 ){
       return '#cccccc'
@@ -65,10 +68,6 @@ export default function DistrictsMaps() {
       return '#cccccc'
     }
   }
-
-  const MapWrapper = styled.div`
-    overflow: scroll;
-  `
 
   return (
     <MapWrapper>

@@ -3,9 +3,31 @@ import styled from 'styled-components'
 
 import Dashboard from './Dashboard'
 
+const SelectionWrapper = styled.div`
+display: flex;
+flex: 1;
+flex-direction: column;
+`
+const SelectionHeader = styled.div`
+padding: 5px;
+text-align: center;
+`
+
+const ReportSelect = styled.select`
+width: 75%;
+margin: 0 auto;
+border: solid thin black;
+margin-top: 10px;
+`
+
+const ReportSelectOption = styled.option`
+padding: 2px;
+`
+
 export default function index() {
   
   const [reportSelection, setReportSelection] = useState(0);
+  
   const selectRef = useRef(null);
 
   let handleSubmit = () =>{
@@ -15,28 +37,7 @@ export default function index() {
   let handleBack = () =>{
     setReportSelection(0);
   }
-
-  //STYLING
-  const SelectionWrapper = styled.div`
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    `
-  const SelectionHeader = styled.div`
-   padding: 5px;
-   text-align: center;
-  `
-  
-  const ReportSelect = styled.select`
-    width: 75%;
-    margin: 0 auto;
-    border: solid thin black;
-    margin-top: 10px;
-  `
-
-  const ReportSelectOption = styled.option`
-    padding: 2px;
-  `
+ 
   if(reportSelection === 0){
     return(
       <SelectionWrapper>
