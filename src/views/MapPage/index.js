@@ -25,12 +25,14 @@ padding: 2px;
 `
 
 export default function index() {
-  
-  const [reportSelection, setReportSelection] = useState(0);
-  
-  const selectRef = useRef(null);
 
-  let handleSubmit = () =>{
+  //My idea is to hit the API with useEffect to query the data for populating the map. 
+  
+  const [reportSelection, setReportSelection] = useState(0); 
+  
+  const selectRef = useRef(null); 
+
+  let handleSubmit = () =>{ 
     setReportSelection(selectRef.current.value)
   }
 
@@ -54,9 +56,9 @@ export default function index() {
       
     )
   }else{
-    return (
+    return ( //Will pass the data to the Dashboard component  
       <div>
-        <Dashboard reportRequest={reportSelection} handleBack={handleBack}/>
+        <Dashboard reportRequest={reportSelection} handleBack={handleBack}/> 
       </div>
     )
   }

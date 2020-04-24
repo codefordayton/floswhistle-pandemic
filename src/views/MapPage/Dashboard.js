@@ -9,18 +9,16 @@ const DashBoardWrapper = styled.div`
 display: flex;
 flex-direction: column;
 `
-const HeadingWrapper = styled.div`
-/* background-color: lightpink; */
-`
-const MapWrapper = styled.div`
+const HeadingWrapper = styled.div``
 
-`
+const MapWrapper = styled.div``
+
 const BackButtonWrapper = styled.div`
 text-align: center;
 `
 export default function Dashboard(props) {
   
-  const {reportRequest, handleBack} = props;
+  const {reportRequest, handleBack} = props; //Will also include data from API request @index.js
 
   const headingText = [{
                         heading: 'Shortages', 
@@ -41,7 +39,7 @@ export default function Dashboard(props) {
       </HeadingWrapper>
       <Tally />
       <MapWrapper>
-        <DistrictsMap />
+        <DistrictsMap />{/* Pass map data to DistrictMap component */}
       </MapWrapper>
     </DashBoardWrapper>
     <BackButtonWrapper>
