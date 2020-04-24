@@ -75,7 +75,7 @@ export default function DistrictsMaps() {
         {districtData.map((info) =>(
             <React.Fragment >
               <ReactToolTip html='true'/>
-              <SvgProxy key={`#${info.district}`} selector={`#${info.district}`} fill={genColor(info.rate)} data-tip={getDistrictInfo(info.district)} />
+              <SvgProxy key={`#${info.district}`} selector={`#${info.district}`} fill={genColor(info.rate)} data-tip={getDistrictInfo(info.district)} /> {/*Queries for each districts ID in districts_map.svg and renders that district in a different color and with a tool tip*/}
             </React.Fragment>
         ))}
       </SvgLoader>
